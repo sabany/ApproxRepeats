@@ -1,0 +1,26 @@
+./ApproxRepeats  ./example/ref.fasta  ./example/que.fasta  ./example/seeds -l 50 -b -o > ./example/l50
+
+mv ./Output ./example/l50
+diff -b ./example/50 ./example/l50 > ./example/l50.df
+if [[ -s ./example/l50.df ]] ; then
+echo "Test1 Failed : l50.df has data."
+else
+echo "Test1 Passed"
+rm ./example/l50
+rm ./example/l50.df
+fi ;
+
+./ApproxRepeats  ./example/reference  ./example/query  ./example/seeds -D 10 -b -o > ./example/D10
+
+mv ./Output ./example/D10
+diff -b ./example/10 ./example/D10 > ./example/D10.df
+if [[ -s ./example/D10.df ]] ; then
+echo "Test2 Failed: D10.df has data."
+else
+echo "Test2 Passed"
+rm ./example/D10
+rm ./example/D10.df
+fi ;
+
+
+
