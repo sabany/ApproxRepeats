@@ -11,7 +11,7 @@ ApproxRepeats is a tool for finding pairs of approximate repeats in DNA sequence
    
 2. Modifying the extension process to perform gapless and gapped extensions
 
-   The extension of a hit in the E-MEM program is simply stopped once a mismatch is visited between the sequences. However, mismatches and gaps are allowed when extending an approximate hit pair. As a result, ApproxrRepeats first extends a hit pair without allowing gaps, and then performs gapped extension on high-score pairs using dynamic programming. Also, new command line options have been added to the program for setting the value of some new parameters.
+   The extension of a hit in the E-MEM program is simply stopped once a mismatch is visited between the sequences. However, mismatches and gaps are allowed when extending an approximate hit pair. As a result, ApproxrRepeats first extends a hit pair without allowing gaps, and then performs gapped extension on high-score pairs using dynamic programming. Also, new command line options have been added to the program for setting the values of new parameters.
    
 #### USAGE:
 ```
