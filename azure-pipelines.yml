@@ -8,5 +8,6 @@ pool:
 
 steps:
 - script: |
+    sudo apt-get install libboost-all-dev
     make
   displayName: 'make'
