@@ -916,8 +916,8 @@ class tmpFilesInfo {
     }
    
     void setNumMemsInFileVec(uint64_t size) {
-        numMemsInFile =  (2*(size+commonData::minMemLen/2)*commonData::d+commonData::d)/NUM_TMP_FILES;
-        numRevMemsInFile = (2*(size+commonData::minMemLen/2)*commonData::d+commonData::d)/NUM_TMP_FILES_REV;
+        numMemsInFile = ceil(static_cast<float>(2*(size+commonData::minMemLen/2)*commonData::d+commonData::d)/NUM_TMP_FILES);
+        numRevMemsInFile = ceil(static_cast<float>(2*(size+commonData::minMemLen/2)*commonData::d+commonData::d)/NUM_TMP_FILES_REV);
     }
    
     static bool compare_reference (const MemExt &obj1, const MemExt &obj2)
