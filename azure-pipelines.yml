@@ -9,7 +9,12 @@ pool:
 steps:
 - script: |
     sudo apt-get install libboost-dev
-  displayName: 'install boost'
+  displayName: 'Install boost'
+  
 - script: |
     make
-  displayName: 'make'
+  displayName: 'Make'
+  
+- bash: |
+    run_example
+  displayName: 'Test'  
