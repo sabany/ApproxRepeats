@@ -13,8 +13,5 @@ steps:
   
 - script: |
     make
-  displayName: 'Make'
-  
-- bash: |
-    run_example
-  displayName: 'Test'  
+    sh run_example
+  displayName: 'Make and test'
