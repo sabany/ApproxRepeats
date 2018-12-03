@@ -1,0 +1,17 @@
+# C/C++ with GCC
+# Build your C/C++ project with GCC using make.
+# Add steps that publish test results, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/c-cpp/gcc
+
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+- script: |
+    sudo apt-get install libboost-dev
+  displayName: 'Install boost'
+  
+- script: |
+    make
+    sh run_example
+  displayName: 'Make and test'

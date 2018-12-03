@@ -1183,18 +1183,18 @@ class tmpFilesInfo {
      *   revFile contains reverse repeats
      *   This function prints out the content of these two files.
      */
-    void outputInMummerFormat(fstream &forFile, fstream &revFile) {
+    void outputInMummerFormat(fstream *forFile, fstream *revFile) {
         string line, last_line;
         fstream *filePtr;
         static int first=1;
         char buffer[50];
 
-        forFile.clear();
-        revFile.clear();   
-        forFile.seekg(ios::beg);   
-        revFile.seekg(ios::beg);
+        (*forFile).clear();
+        (*revFile).clear();   
+        (*forFile).seekg(ios::beg);   
+        (*revFile).seekg(ios::beg);
 
-        filePtr = &forFile;
+        filePtr = forFile;
         if(getline((*filePtr), line).good()) 
             cout << line << endl;
 
@@ -1203,26 +1203,26 @@ class tmpFilesInfo {
                 if (last_line.size())
                     cout << last_line << endl;
                 last_line = line;
-                if ((*filePtr) == forFile) {
-                    filePtr = &revFile;
+                if (filePtr == forFile) {
+                    filePtr = revFile;
                     if (first) {
                         if(getline((*filePtr), line).good()) 
                             cout << line << endl;
                         first=0;
                     }
                 }else
-                    filePtr = &forFile;
+                    filePtr = forFile;
                 continue;
             }
             cout << line << endl;
         }
-        forFile.close();
+        (*forFile).close();
 
         cout << last_line << endl;
-        filePtr = &revFile;
+        filePtr = revFile;
         while(getline((*filePtr), line).good())
             cout << line << endl;
-        revFile.close();
+        (*revFile).close();
         
         memset(buffer,0,50);
         sprintf(buffer, "./%d_tmp/%d", getpid(), NUM_TMP_FILES+NUM_TMP_FILES_REV);
@@ -1422,7 +1422,7 @@ class tmpFilesInfo {
                 std::cout.rdbuf(outFile.rdbuf());
             else
                 std::cout.rdbuf(coutbuf);
-            outputInMummerFormat(TmpFiles[numFiles], TmpFiles[numFiles+1]);
+            outputInMummerFormat(&TmpFiles[numFiles], &TmpFiles[numFiles+1]);
         }
         
         if(IS_OUT_FILE_DEF(options)) {
