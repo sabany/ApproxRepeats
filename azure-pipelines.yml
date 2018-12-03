@@ -8,6 +8,8 @@ pool:
 
 steps:
 - script: |
-    sudo apt-get install libboost-all-dev
+    sudo apt-get install libboost-dev
+  displayName: 'install boost'
+- script: |
     make
   displayName: 'make'
