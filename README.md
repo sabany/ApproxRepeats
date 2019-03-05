@@ -4,7 +4,7 @@ Finding approximate repeats in DNA sequences
 [![Build Status](https://dev.azure.com/sarahbanyassady/ApproxRepeats/_apis/build/status/sabany.ApproxRepeats)](https://dev.azure.com/sarahbanyassady/ApproxRepeats/_build/latest?definitionId=1)
 
 ## DESCRIPTION
-ApproxRepeats is a tool for finding pairs of approximate repeats in DNA sequences using multiple spaced seeds. This program has been developed as part of a master's research project [1] in 2015, based on an early version of the E-MEM program [2,3] which is designed for computation of maximal exact matches. E-MEM uses a hit and extend approach and a hash table as the lookup data structure. In the development of ApproxRepeats, two major modifications have been made to the E-MEM source code:
+ApproxRepeats is a tool for finding pairs of approximate repeats in DNA sequences using multiple spaced seeds. This program has been developed as part of a master's research project [[1](https://hdl.handle.net/11375/18041)] in 2015, based on an early version of the E-MEM program [[2](https://github.com/lucian-ilie/E-MEM), [3](http://bioinformatics.oxfordjournals.org/content/31/4/509.short)] which is designed for computation of maximal exact matches. E-MEM uses a hit and extend approach and a hash table as the lookup data structure. In the development of ApproxRepeats, two major modifications have been made to the E-MEM source code:
 
 1. Re-designing the hash table to make it more flexible and space-efficient 
 
